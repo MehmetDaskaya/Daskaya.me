@@ -1,0 +1,168 @@
+/* Browser component styles */
+
+/* Add this to your CSS to import the Tahoma font */
+@import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
+
+.browser-container {
+    border: 2px solid #1A4876;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 800px;
+    height: 500px;
+}
+
+/* Add this style to display the browser when it's open */
+.browser-container.open {
+    display: block;
+}
+
+/* Browser title bar styles */
+.browser-title-bar {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(to bottom, #5C8DD9, #0039A6);
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+/* Container for title bar buttons */
+.title-bar-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Close button styles */
+.browser-close-button {
+    background-color: #FF0000;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background: none;
+}
+
+/* Close button hover effect */
+.browser-close-button:hover {
+    background-color: #FF6666;
+}
+
+/* Browser content area styles */
+.browser-content {
+    width: 100%;
+    height: calc(100%);
+    border-top: 1px solid #000;
+    position: relative;
+}
+
+/* Iframe styles */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* Remove iframe border */
+}
+
+
+.browser-fullscreen-button {
+    background-color: transparent;
+    border: none;
+    /* Remove the border */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    /* Reduce the margin between buttons */
+}
+
+/* Fullscreen button hover effect */
+.browser-fullscreen-button:hover {
+    background-color: transparent;
+}
+
+.browser-fullscreen-button img:hover {
+    opacity: 0.8;
+    /* Adjust the opacity as needed */
+}
+
+/* Fullscreen state styles */
+.browser-container.fullscreen {
+    position: fixed;
+    top: 1;
+    left: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.browser-container.fullscreen .browser-title-bar {
+    display: flex;
+    justify-content: space-between;
+    /* Add this to align elements horizontally */
+}
+
+.browser-container.fullscreen iframe {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 28px);
+    border: 2px solid #1A4876;
+    border-top: none;
+}
+
+.browser-left {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.browser-right {
+    display: flex;
+    flex-direction: row;
+    /* Change to row to ensure horizontal order */
+    align-items: center;
+    margin-right: 8px;
+}
+
+.explorer-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.website-name {
+    margin-right: 2px;
+}
+
+.explorer-title {
+    font-family: 'Tahoma', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.header {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.header:hover {
+    opacity: 1;
+}

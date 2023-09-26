@@ -1,0 +1,82 @@
+/* Toolbar.css */
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    /* Set the height to match the img element */
+    z-index: 1000;
+    background: linear-gradient(to bottom, #5C8DD9, #0039A6);
+}
+
+/* Styles for the left image and div container */
+.start-container {
+    display: flex;
+    align-items: center;
+}
+
+.start {
+    width: 93px;
+    height: 32px;
+    opacity: 1;
+    /* Add filter transition */
+    z-index: 2;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+/* Styling for the clicked state of the left image */
+.start.clicked {
+    filter: brightness(50%);
+    /* Darken the image */
+}
+/* Styling for the left div */
+.start-div {
+    width: 93px;
+    /* Match the width of the image */
+    height: 30px;
+    /* Match the height of the image */
+    /* Set your background color */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Styling for the clicked state of the left div */
+.start-div.clicked {
+    filter: brightness(50%);
+    /* Darken the div */
+}
+
+.toolbarRight {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    width: 120px;
+    height: 30px;
+    /* Adjust height as needed */
+    background-image: url("/public/toolbarRight.png");
+    /* Replace with your image path */
+    background-size: cover;
+    /* Adjust to fit your image size */
+}
+
+/* Style the overlaid text */
+.toolbarRightText {
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+}
