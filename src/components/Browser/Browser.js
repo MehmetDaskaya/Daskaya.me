@@ -51,6 +51,7 @@ const Browser = ({ url, isOpen, setIsBrowserOpen }) => {
         <div className="browser-left">
           <img
             className="explorer-icon"
+            alt="explorer"
             src="https://raw.githubusercontent.com/MehmetDaskaya/Daskaya.me/main/public/NicePng_windows-xp-taskbar-png_9285144.png"
           />
           <p className="explorer-title">Windows Internet Explorer</p>
@@ -58,18 +59,21 @@ const Browser = ({ url, isOpen, setIsBrowserOpen }) => {
         <div className="browser-right">
           <img
             src="/minimized.png"
+            alt="minimize"
             className="header browser-icon"
             onClick={handleMinimizeClick}
             style={{ opacity: minimizeOpacity }}
           />
           <img
             src="/resized.png"
+            alt="resize"
             className="header browser-icon"
             onClick={handleResizeClick}
             style={{ opacity: resizeOpacity }}
           />
           <img
             src="/closed.png"
+            alt="close"
             className="header browser-icon"
             onClick={handleCloseClick}
             style={{ opacity: closeOpacity }}
