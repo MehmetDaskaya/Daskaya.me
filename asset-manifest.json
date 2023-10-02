@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Daskaya.me/static/css/main.bd78ace9.css",
+    "main.js": "/Daskaya.me/static/js/main.dc13e801.js",
+    "static/js/496.80db1475.chunk.js": "/Daskaya.me/static/js/496.80db1475.chunk.js",
+    "static/media/background.jpg": "/Daskaya.me/static/media/background.941a2b36e58940836819.jpg",
+    "index.html": "/Daskaya.me/index.html",
+    "main.bd78ace9.css.map": "/Daskaya.me/static/css/main.bd78ace9.css.map",
+    "main.dc13e801.js.map": "/Daskaya.me/static/js/main.dc13e801.js.map",
+    "496.80db1475.chunk.js.map": "/Daskaya.me/static/js/496.80db1475.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd78ace9.css",
+    "static/js/main.dc13e801.js"
+  ]
+}
