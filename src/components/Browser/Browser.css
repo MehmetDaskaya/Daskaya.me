@@ -3,6 +3,31 @@
 /* Add this to your CSS to import the Tahoma font */
 @import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
 
+@media (max-width: 700px) {
+    .browser-container {
+        width: 300px;
+        /* Make it full width on smaller screens */
+        height: 500px;
+        /* Make it full height on smaller screens */
+        top: 0;
+        left: 0;
+        transform: none;
+        border: none;
+        /* Remove the border on smaller screens */
+    }
+
+    .browser-title-bar {
+        height: 60px;
+        /* Increase the height for better touch interaction */
+    }
+
+    .browser-container.fullscreen iframe {
+        height: calc(100% - 60px);
+        /* Adjust iframe height for fullscreen on mobile */
+    }
+
+}
+
 .browser-container {
     border: 2px solid #1A4876;
     position: fixed;
@@ -17,6 +42,7 @@
 /* Add this style to display the browser when it's open */
 .browser-container.open {
     display: block;
+    background-color: #ffffff;
 }
 
 /* Browser title bar styles */
@@ -42,7 +68,6 @@
 
 /* Close button styles */
 .browser-close-button {
-    background-color: #FF0000;
     color: #fff;
     width: 18px;
     height: 18px;
@@ -166,3 +191,4 @@ iframe {
 .header:hover {
     opacity: 1;
 }
+
