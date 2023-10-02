@@ -32,7 +32,7 @@ const IconData = [
     name: "Internet Explorer",
     left: 150,
     top: 50,
-    src: "https://raw.githubusercontent.com/MehmetDaskaya/Daskaya.me/main/public/NicePng_windows-xp-taskbar-png_9285144.png",
+    src: "https://raw.githubusercontent.com/MehmetDaskaya/Daskaya.me/main/public/explorer_icon.png",
   },
 ];
 
