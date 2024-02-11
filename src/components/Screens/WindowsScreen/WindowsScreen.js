@@ -1,9 +1,11 @@
 import { React, useState } from "react";
 import { Icon, Browser, Toolbar } from "../../index";
+import { About } from "../../Folders/index";
 import IconData from "../../../data/IconData";
 
 const WindowsScreen = () => {
   const [isBrowserOpen, setIsBrowserOpen] = useState(false);
+  const [selectedIcon, setSelectedIcon] = useState(null);
   const [icons, setIcons] = useState(IconData);
 
   const handleDragStart = (e, id) => {
@@ -28,11 +30,65 @@ const WindowsScreen = () => {
   };
 
   const handleIconClick = (id) => {
-    if (id === 5) {
-      // If the Internet Explorer icon is clicked, toggle the browser state
-      setIsBrowserOpen(true);
-    } else {
-      console.log("selam");
+    const clickedIcon = icons.find((icon) => icon.id === id);
+    setSelectedIcon(clickedIcon);
+    setIsBrowserOpen(true);
+  };
+
+  const getSelectedContent = () => {
+    switch (selectedIcon.id) {
+      case 1:
+        return (
+          <div
+            style={{
+              width: "100px",
+              height: "100px",
+              backgroundColor: "red",
+            }}
+          >
+            Content for icon 1
+          </div>
+        );
+      case 2:
+        return (
+          <div
+            style={{
+              width: "100px",
+              height: "100px",
+              backgroundColor: "blue",
+            }}
+          >
+            Content for icon 2
+          </div>
+        );
+      case 3:
+        return <About />;
+
+      case 4:
+        return (
+          <div
+            style={{
+              width: "100px",
+              height: "100px",
+              backgroundColor: "blue",
+            }}
+          >
+            Content for icon 4
+          </div>
+        );
+      case 5:
+        return (
+          <iframe
+            src="https://bing.com"
+            title="Embedded Browser"
+            width="800"
+            height="600"
+            allowFullScreen
+          ></iframe>
+        );
+      // Add cases for other icons as needed
+      default:
+        return null;
     }
   };
 
@@ -54,9 +110,11 @@ const WindowsScreen = () => {
       <Toolbar className="toolbar" />
       {isBrowserOpen && (
         <Browser
-          url="https://bing.com"
           isOpen={isBrowserOpen}
           setIsBrowserOpen={setIsBrowserOpen}
+          content={getSelectedContent()}
+          icon={selectedIcon.src}
+          title={selectedIcon.name}
         />
       )}
     </div>

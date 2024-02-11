@@ -1,12 +1,37 @@
 import React, { useState } from "react";
 import "./Browser.css";
 
-const Browser = ({ url, isOpen, setIsBrowserOpen }) => {
+const Browser = ({ isOpen, setIsBrowserOpen, content, icon, title }) => {
   const [minimizeOpacity, setMinimizeOpacity] = useState(0.85);
   const [resizeOpacity, setResizeOpacity] = useState(0.85);
   const [closeOpacity, setCloseOpacity] = useState(0.85);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
 
-  // Function to toggle fullscreen mode
+  const handleMouseDown = (e) => {
+    if (e.target.classList.contains("browser-title-bar")) {
+      setIsDragging(true);
+      setDragOffset({
+        x: e.clientX - position.x,
+        y: e.clientY - position.y,
+      });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - dragOffset.x,
+        y: e.clientY - dragOffset.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   const toggleFullscreen = () => {
     const iframe = document.querySelector("iframe");
     const browserContainer = document.querySelector(".browser-container");
@@ -41,20 +66,21 @@ const Browser = ({ url, isOpen, setIsBrowserOpen }) => {
       setCloseOpacity(0.85);
     }, 300);
 
-    // Close the browser by setting isBrowserOpen to false
     setIsBrowserOpen(false);
   };
 
   return (
-    <div className={`browser-container ${isOpen ? "open" : ""}`}>
+    <div
+      className={`browser-container ${isOpen ? "open" : ""}`}
+      style={{ top: position.y, left: position.x }}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
       <div className="browser-title-bar">
         <div className="browser-left">
-          <img
-            className="explorer-icon"
-            alt="explorer"
-            src="https://raw.githubusercontent.com/MehmetDaskaya/Daskaya.me/main/public/explorer_icon.png"
-          />
-          <p className="explorer-title">Windows Internet Explorer</p>
+          <img className="explorer-icon" alt={title} src={icon} />
+          <p className="explorer-title">{title}</p>
         </div>
         <div className="browser-right">
           <img
@@ -80,17 +106,7 @@ const Browser = ({ url, isOpen, setIsBrowserOpen }) => {
           />
         </div>
       </div>
-      {isOpen && (
-        <div className="browser-content">
-          <iframe
-            src={url}
-            title="Embedded Browser"
-            width="800"
-            height="600"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
+      {isOpen && <div className="browser-content">{content}</div>}
     </div>
   );
 };
